@@ -93,7 +93,8 @@ h1 {
 .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 20px; /* Ajusta el margen superior según tus preferencias */
+    margin-top: 20px;
+    /* Ajusta el margen superior según tus preferencias */
 }
 
 #generar-btn {
@@ -101,6 +102,6 @@ h1 {
 }
 
 .nav-btn-separacion {
-    margin-right: 10px; /* Ajusta el valor según el espaciado deseado */
+    margin-right: 10px;
+    /* Ajusta el valor según el espaciado deseado */
 }
-
