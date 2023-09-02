@@ -26,7 +26,7 @@ function crearMiedoItem(nombre) {
     // Agrega un evento input al slider para actualizar el número mientras se desliza
     const miedoSlider = miedoItem.querySelector('.miedo-slider');
     const miedoValue = miedoItem.querySelector('.miedo-value');
-    
+
     miedoSlider.addEventListener('input', () => {
         miedoValue.textContent = miedoSlider.value;
     });
@@ -66,11 +66,11 @@ function actualizarMiedo() {
 function mostrarResultados() {
     resultadoList.style.display = 'block';
     resultadoList.innerHTML = miedoScores.map(item => `<li>${item.miedo}: ${item.score}/10</li>`).join('');
-    
+
     // Oculta los botones de siguiente y anterior
     siguienteBtn.style.display = 'none';
     anteriorBtn.style.display = 'none';
-    
+
     // Muestra el botón de Volver a Empezar y Twittear
     const restartButton = document.getElementById('generar-btn');
     restartButton.style.display = 'block';
@@ -105,36 +105,53 @@ const reiniciarBtn = document.getElementById('reiniciar-btn'); // Agrega el bot�
 
 // Agrega un evento click al botón de reinicio
 reiniciarBtn.addEventListener('click', () => {
-    // Oculta los resultados y el botón de Twitter
+    // Oculta la lista de resultados
     resultadoList.style.display = 'none';
-    twittearBtn.style.display = 'none';
+
+    // Muestra la barra de progreso con un ancho del 0%
+    const progressFill = document.querySelector('.progress-fill');
+    progressFill.style.width = '0%';
 
     // Muestra los botones de siguiente y anterior
     siguienteBtn.style.display = 'block';
     anteriorBtn.style.display = 'block';
 
-    // Resetea el índice y el progreso
+    // Reinicia el índice de la pregunta
     currentIndex = 0;
     actualizarMiedo();
 
     // Oculta el botón de reinicio
     reiniciarBtn.style.display = 'none';
+
+    // Vuelve a ocultar el botón de Twittear
+    twittearBtn.style.display = 'none';
+
+    progressBar.style.display = 'block';
+    miedoListContainer.style.display = 'block'; 
+    progressBar.style.display = 'block'; 
 });
+
 
 function mostrarResultados() {
     resultadoList.style.display = 'block';
     resultadoList.innerHTML = miedoScores.map(item => `<li>${item.miedo}: ${item.score}/10</li>`).join('');
-    
+
     // Oculta los botones de siguiente y anterior
     siguienteBtn.style.display = 'none';
     anteriorBtn.style.display = 'none';
-    
+
     // Muestra el botón de Volver a Empezar y Twittear
     generarBtn.style.display = 'none';
     twittearBtn.style.display = 'block';
 
     // Muestra el botón de reinicio
     reiniciarBtn.style.display = 'block';
+
+
+    progressBar.style.display = 'none';
+    miedoListContainer.style.display = 'none'; // Oculta la lista de miedos
+    progressBar.style.display = 'none'; // Oculta la barra de progreso
+
 }
 
 
